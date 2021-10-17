@@ -1,0 +1,29 @@
+.dialogCon{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dialog{
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.backdrop{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(127,127,127,0.5);
+}

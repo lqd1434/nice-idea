@@ -1,0 +1,117 @@
+
+//1
+//变量定义
+$ring-b:5px;//圆环边框宽度(环)
+$ring-size:64px;//圆环大小
+$dot-size:$ring-b / (5 / 16) ;//圆点宽度(环点比例为3/8)
+
+
+.con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.ring{
+  border: #52133A $ring-b solid;
+  border-radius: 50%;
+  width:$ring-size;
+  height: $ring-size;
+  position: relative;
+}
+
+.dot{
+  background-color: #fc2f70;
+  width: $dot-size;
+  height: $dot-size;
+  border-radius: 50%;
+  position: absolute;
+  top: -($ring-b * 2);
+  right:($ring-size - (2 * $ring-b)) / 2;
+  transform-origin: (2 * $ring-b) (0.5 *$ring-size + 2 * $ring-b);
+  animation:spin 1.5s ease infinite ;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//2
+.ringCircle{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: #52133A 5px solid;
+  border-top: #fc2f70 5px solid;
+  animation: spin 1s linear infinite;
+}
+//3
+
+.overLayer{
+  color: white;
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    height: 2px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: aqua;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover::before {
+    transform: scaleX(1);
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+//4
+.pulseLoading{
+  position: relative;
+  width: 64px;
+  height: 64px;
+  box-sizing: border-box;
+
+  div{
+    position: absolute;
+    border-radius: 50%;
+    border: aqua 3px solid;
+    animation:pulse 4s ease-in-out infinite ;
+  }
+  div:nth-of-type(2){
+   animation-delay: 1s;
+  }
+  div:nth-of-type(3){
+    animation-delay: 2s;
+  }
+  div:nth-of-type(4){
+    animation-delay: 3s;
+  }
+}
+
+@keyframes pulse {
+  from{
+    top: 32px;
+    left: 32px;
+    opacity: 1;
+    border-width: 3px;
+    width: 0;
+    height: 0;
+  }
+  to{
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    border-width: 3px;
+  }
+}
