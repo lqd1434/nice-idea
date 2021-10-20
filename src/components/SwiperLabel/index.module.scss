@@ -1,0 +1,57 @@
+.track{
+  width: 315px;
+  height:315px;
+  transform: scaleY(0.5) rotateZ(0deg);
+  border-radius: 50%;
+  border: lightcoral 2px solid;
+  animation: animate-track 5s linear infinite;
+
+  .label{
+    width: 108px;
+    height: 56px;
+    position: absolute;
+    background-color: #FA6C37;
+    border-radius: 3px;
+    top: -28px;
+    left: calc(50% - 54px);
+    box-shadow: 0 2px 0 0 #2d63fb inset;
+    transform: rotateZ(0deg) scaleY(2);//先旋转，角度和轨道相反，后变为二倍
+    animation: animate-label 5s linear infinite;
+  }
+}
+
+@keyframes animate-track {
+  0%{
+    transform:scaleY(0.5) rotateZ(0deg);
+  }
+  25%{
+    transform:scaleY(0.5) rotateZ(90deg);
+  }
+  50%{
+    transform:scaleY(0.5) rotateZ(180deg);
+  }
+  75%{
+    transform:scaleY(0.5) rotateZ(270deg);
+  }
+  100%{
+    transform:scaleY(0.5) rotateZ(360deg);
+  }
+}
+
+@keyframes animate-label {
+  0%{
+    transform: rotateZ(0deg) scaleY(2)
+  }
+  25%{
+    transform: rotateZ(-90deg) scaleY(2)
+  }
+  50%{
+    transform: rotateZ(-180deg) scaleY(2)
+  }
+  75%{
+    transform: rotateZ(-270deg) scaleY(2)
+  }
+  100%{
+    transform: rotateZ(-360deg) scaleY(2)
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react'
-import SquareLoading from './components/Square'
+import SwiperLabel from './components/SwiperLabel'
 function App() {
 	return (
 		<>
-			<SquareLoading />
+			<SwiperLabel />
 		</>
 	)
 }
